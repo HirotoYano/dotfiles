@@ -24,7 +24,8 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
 
 -- Telescope
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<Leader>ff", builtin.find_files, {})
+-- vim.keymap.set("n", "<Leader>ff", builtin.find_files, {})
+vim.keymap.set('n', '<Leader>ff', [[<Cmd>lua require('telescope.builtin').find_files({ find_command={'rg', '--files', '--hidden', '--glob', '!*.git'} })<CR>]], { noremap = true, silent = true })
 vim.keymap.set("n", "<Leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<Leader>gs", builtin.git_status, {})
 vim.keymap.set("n", "<Leader>gl", builtin.git_commits, {})
